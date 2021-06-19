@@ -22,12 +22,15 @@ Route::get('/', function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Rota para o customers
-Route::get('/getcustomers', 'CustomerController@showUsers');
-Route::resource('/customers', 'CustomerController');
+// //Rota para o customers
+// Route::get('/getcustomers', 'CustomerController@showCustomers');
+// Route::resource('/customers', 'CustomerController');
+
+Route::get('/estudantes', 'EstudantesController@index');
+// Route::resource('/estudantes', 'EstudantesController');
+
 
 //rota para o user
 Route::get('/getusers', 'UserController@showUsers');
 Route::resource('/users', 'UserController');
-
 Auth::routes();

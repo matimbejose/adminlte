@@ -249,8 +249,8 @@ return [
         ],
 
         [
-            'text' => 'Clientes',
-            'url' => 'customers',
+            'text' => 'Estudantes',
+            'url' => 'estudantes',
             'icone' => "fas fa-fw fa-user",
         ],
 

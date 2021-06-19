@@ -20,7 +20,7 @@
  // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
  
  Vue.component('home-dashboard', require('./components/Dashboard.vue').default);
- Vue.component('list-customers', require('./components/customers/ListCustomers.vue').default);
+ //Vue.component('list-customers', require('./components/customers/ListCustomers.vue').default);
  Vue.component('home-users', require('./components/users/Users.vue').default);
  
  /**
