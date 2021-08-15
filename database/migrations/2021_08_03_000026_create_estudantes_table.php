@@ -16,9 +16,9 @@ class CreateEstudantesTable extends Migration
         Schema::create('estudantes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('disciplinas');
-            $table->bigInteger('phone');
-            $table->decimal('balance', 15, 2)->default(0.0);          
+            $table->string('email')->nullable($value = true);
+            $table->bigInteger('celular');
+            $table->decimal('balance', 15,2)->default(0,0);
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

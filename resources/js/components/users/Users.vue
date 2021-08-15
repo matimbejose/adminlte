@@ -73,7 +73,7 @@
         </div>
          </div>   
         <footer class="main-footer-fluid">
-            <strong>Developed by Jose justino matimbe </strong>
+           <strong>By Eng Matimbe Jose , Justino . MSC</strong>
         </footer>
     </div>
     

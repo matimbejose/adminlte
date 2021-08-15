@@ -16,15 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-
-
 //apotando  home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
 //rota para o user
 Route::get('/getusers', 'UserController@showUsers');
 Route::resource('/users', 'UserController');
+
+//rota para estudantes
+Route::resource('/estudantes', 'EstudanteController');
+Route::get('/getestudantes', 'EstudanteController@showEstudantes');
+
+
+
+
+
 Auth::routes();

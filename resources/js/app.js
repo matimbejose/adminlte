@@ -19,9 +19,12 @@
  // const files = require.context('./', true, /\.vue$/i)
  // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
  
- Vue.component('home-dashboard', require('./components/Dashboard/Dashboard.vue').default);
- //Vue.component('list-customers', require('./components/customers/ListCustomers.vue').default);
  Vue.component('home-users', require('./components/users/Users.vue').default);
+ Vue.component('home-dashboard', require('./components/Dashboard/Dashboard.vue').default);
+ Vue.component('home-estudantes', require('./components/Estudantes/Estudantes.vue').default);
+ Vue.component('create-estudantes' , require('./components/Estudantes/CreateEstudantes.vue').default);
+
+
  
  /**
   * Next, we will create a fresh Vue application instance and attach it to
