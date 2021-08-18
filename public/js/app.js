@@ -1932,6 +1932,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1967,8 +1969,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'create-estudantes'
+  name: 'create-estudantes',
+  props: ['id'],
+  data: function data() {
+    return {
+      formData: {
+        name: '',
+        email: '',
+        celular: ''
+      },
+      status: false
+    };
+  },
+  methods: {
+    save: function save() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/estudantes', this.formData).then(function (response) {
+        _this.status = response.data.sucess;
+      });
+    }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -38108,85 +38133,170 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [
+          _vm._v("Cadastrar Estudantes "),
+          _vm.status ? _c("small", [_vm._v(_vm._s(_vm.status))]) : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { action: "#" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.save($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("Nome")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.name,
+                  expression: "formData.name"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "name",
+                placeholder: "imforme o nome do estudante"
+              },
+              domProps: { value: _vm.formData.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.email,
+                  expression: "formData.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "email",
+                placeholder: "imforme a email do estudante"
+              },
+              domProps: { value: _vm.formData.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("celular")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.celular,
+                  expression: "formData.celular"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "celular",
+                placeholder: "imforme o celular do estudante"
+              },
+              domProps: { value: _vm.formData.celular },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "celular", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("h3", { staticClass: "card-title" }, [
-            _vm._v("Cadastrar Estudantes ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-tools" }, [
-            _c("i", { staticClass: "fas fa-users" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("form", [
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "label",
-              {
-                staticClass: "form-label",
-                attrs: { for: "exampleInputEmail1" }
-              },
-              [_vm._v("Nome")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "name" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "label",
-              {
-                staticClass: "form-label",
-                attrs: { for: "exampleInputEmail1" }
-              },
-              [_vm._v("Email")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "exampleInputEmail1" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "label",
-              {
-                staticClass: "form-label",
-                attrs: { for: "exampleInputEmail1" }
-              },
-              [_vm._v("celular")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "exampleInputEmail1" }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-            [_vm._v("Submit")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("footer", { staticClass: "main-footer-fluid" }, [
-          _c("strong", [_vm._v("By Eng Matimbe Jose , Justino . MSC")])
-        ])
-      ])
+    return _c("div", { staticClass: "card-tools" }, [
+      _c("i", { staticClass: "fas fa-users" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-success", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fas fa-plus-square" }), _vm._v(" Cadastrar")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-primary",
+        attrs: { href: "/estudantes", role: "button" }
+      },
+      [
+        _c("i", { staticClass: "fas fa-list-ul" }),
+        _vm._v(" Lista de Estudantes")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "main-footer-fluid" }, [
+      _c("strong", [_vm._v("By Eng Matimbe Jose , Justino . MSC")])
     ])
   }
 ]
@@ -38264,19 +38374,12 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { href: "http://127.0.0.1:8000/estudantes/create" }
-              },
-              [_vm._v("Novo Estudantes")]
-            )
+            _vm._m(4)
           ])
         ]
       ),
       _vm._v(" "),
-      _vm._m(4)
+      _vm._m(5)
     ])
   ])
 }
@@ -38328,6 +38431,22 @@ var staticRenderFns = [
       _c("i", { staticClass: "fas fa-pen" }),
       _vm._v(" Editar")
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-danger",
+        attrs: { href: "/estudantes/create", role: "button" }
+      },
+      [
+        _c("i", { staticClass: "fas fa-file-export" }),
+        _vm._v(" Cadastrar Estudante")
+      ]
+    )
   },
   function() {
     var _vm = this

@@ -31,7 +31,7 @@
                     </td>
                     </tr>
                   </tbody>
-                    <button href="http://127.0.0.1:8000/estudantes/create" class="btn btn-primary">Novo Estudantes</button>
+                  <a class="btn btn-danger" href="/estudantes/create" role="button"> <i class="fas fa-file-export"></i> Cadastrar Estudante</a>
                 </table>
             </div>
         <footer class="main-footer-fluid">
