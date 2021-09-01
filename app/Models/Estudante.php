@@ -12,11 +12,13 @@ class Estudante extends Model
 
     protected $fillable = [
 
+        'id',
         'name',
         'email',
         'celular',
-        'creacted_by',
         'balance',
+        'created_by',
+       
 
     ];
 }

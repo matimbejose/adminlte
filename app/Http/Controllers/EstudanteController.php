@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Estudante;
-use Auth;
+use auth;
 
 class EstudanteController extends Controller
 {
@@ -21,19 +21,24 @@ class EstudanteController extends Controller
 
     }
 
+    public function edit($id) {
+        return view('Estudante.edit')->with('estudante', Estudante::find($id));
+    }
+
     public function store(Request $request) {
 
         //senas obrigatorias
-        $this->validate($request, [
+        $this -> validate($request, [
             'name' => 'required',
             'email' => 'required',
             'celular' => 'required'
         ]);
+
         $estudante = Estudante::create([
-            'created_by' -> Auth::id(),
-            'name' -> $request->name,
-            'email'-> $request->email,
-            'celular'-> $request->celular
+            'created_by' => auth::id(),
+            'name' => $request->name,
+            'email'=> $request->email,
+            'celular' => $request->celular
 
         ]);
 
@@ -43,5 +48,15 @@ class EstudanteController extends Controller
 
        
     }
+
+    public function destroy($id) {
+        //estamos a encotara o file e  estamos a evocar a funcao delete
+        $estudante = Estudante::find($id)->delete();
+
+        if($estudante) {
+            return response()->json(['sucess'=>'Removido com sucesso']);
+        }
+    }
+
 
 }

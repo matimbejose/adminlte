@@ -1,5 +1,5 @@
 <template>
-        <div class="row justify-content-center">
+<div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card-header">
                 <h3 class="card-title">Cadastrar Estudantes <small  v-if="status"> {{ status }}  </small></h3>
@@ -24,7 +24,7 @@
     <input type="text" class="form-control" id="celular"  placeholder="imforme o celular do estudante" v-model="formData.celular">
   </div>
 
-  <button type="submit" class="btn btn-success"><i class="fas fa-plus-square"></i> Cadastrar</button>
+  <button type="submit" class="btn btn-success"><i class="fas fa-plus-square"></i> Salvar </button>
   <a class="btn btn-primary" href="/estudantes" role="button"><i class="fas fa-list-ul"></i> Lista de Estudantes</a>
 </form>
 <footer class="main-footer-fluid">
@@ -35,39 +35,40 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios  from 'axios'
 export default {
-    name:'createEstudantes',
-    props: ['id'],
-    data() {
-      return {
-        formData: {
-          name: '',
-          email: '',
-          celular: ''
-        },
-        status: false 
+    name: 'edit-estudantes',
+    props: ['estudante'],
+   data() {
+       return {
+           formData: {
+               name: '',
+               emial: '',
+               celular: ''
+           },
+           status: false
 
-      } 
-    },
+       }
+   },
 
     methods: {
-      save() {
-        axios.post('http://127.0.0.1:8000/estudantes', this.formData)
-        .then((response) => {
-          this.status = response.data.sucess
-
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-      }
-
+        save(id) {
+            axios.put(`http://127.0.0.1:8000/estudantes/${id}`, this.formData)
+            .then((response) => {
+                this.status = response.data.sucess
+            })
+            .catch((err) => {
+                console.log(error)
+            })
+        }
+       
     },
 
     mounted() {
-     
-
+        
+    },
+    created() {
+        console.log(this.estudante)
     }
 }
 </script>

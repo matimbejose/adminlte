@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'MOZ HELP SCHOOL')
 
 @section('content_header')
  

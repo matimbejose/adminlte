@@ -1917,7 +1917,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'Dashboard',
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {}
+});
 
 /***/ }),
 
@@ -1972,7 +1978,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'create-estudantes',
+  name: 'createEstudantes',
   props: ['id'],
   data: function data() {
     return {
@@ -1990,6 +1996,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('http://127.0.0.1:8000/estudantes', this.formData).then(function (response) {
         _this.status = response.data.sucess;
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   },
@@ -2058,6 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Estudantes',
   props: ['id'],
+  components: {},
   data: function data() {
     return {
       //vou comencar com o array vazio
@@ -2081,14 +2090,106 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    deleteEstudantes: function deleteEstudantes(id) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("http://127.0.0.1:8000/estudantes/".concat(id)).then(function (response) {
+        _this2.status = response.data.sucess;
+
+        _this2.getEstudantes();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
   mounted: function mounted() {
     this.getEstudantes();
-    this.getCadastrar();
   },
   created: function created() {},
   watch: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'edit-estudantes',
+  props: ['estudante'],
+  data: function data() {
+    return {
+      formData: {
+        name: '',
+        emial: '',
+        celular: ''
+      },
+      status: false
+    };
+  },
+  methods: {
+    save: function save(id) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put("http://127.0.0.1:8000/estudantes/".concat(id), this.formData).then(function (response) {
+        _this.status = response.data.sucess;
+      })["catch"](function (err) {
+        console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {},
+  created: function created() {
+    console.log(this.estudante);
+  }
 });
 
 /***/ }),
@@ -2275,6 +2376,7 @@ Vue.component('home-users', __webpack_require__(/*! ./components/users/Users.vue
 Vue.component('home-dashboard', __webpack_require__(/*! ./components/Dashboard/Dashboard.vue */ "./resources/js/components/Dashboard/Dashboard.vue").default);
 Vue.component('home-estudantes', __webpack_require__(/*! ./components/Estudantes/Estudantes.vue */ "./resources/js/components/Estudantes/Estudantes.vue").default);
 Vue.component('create-estudantes', __webpack_require__(/*! ./components/Estudantes/CreateEstudantes.vue */ "./resources/js/components/Estudantes/CreateEstudantes.vue").default);
+Vue.component('edit-estudantes', __webpack_require__(/*! ./components/Estudantes/editEstudantes.vue */ "./resources/js/components/Estudantes/editEstudantes.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -37831,6 +37933,45 @@ component.options.__file = "resources/js/components/Estudantes/Estudantes.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Estudantes/editEstudantes.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/Estudantes/editEstudantes.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editEstudantes.vue?vue&type=template&id=5701173e& */ "./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e&");
+/* harmony import */ var _editEstudantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editEstudantes.vue?vue&type=script&lang=js& */ "./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _editEstudantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Estudantes/editEstudantes.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/users/Users.vue":
 /*!*************************************************!*\
   !*** ./resources/js/components/users/Users.vue ***!
@@ -37918,6 +38059,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editEstudantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./editEstudantes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editEstudantes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/users/Users.vue?vue&type=script&lang=js&":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/users/Users.vue?vue&type=script&lang=js& ***!
@@ -37985,6 +38142,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editEstudantes_vue_vue_type_template_id_5701173e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./editEstudantes.vue?vue&type=template&id=5701173e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/users/Users.vue?vue&type=template&id=7db115a6&":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/users/Users.vue?vue&type=template&id=7db115a6& ***!
@@ -38035,7 +38209,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "icon" }, [
-            _c("i", { staticClass: "ion ion-bag" })
+            _c("i", { staticClass: "fas fa-users-class" })
           ]),
           _vm._v(" "),
           _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
@@ -38138,7 +38312,9 @@ var render = function() {
       _c("div", { staticClass: "card-header" }, [
         _c("h3", { staticClass: "card-title" }, [
           _vm._v("Cadastrar Estudantes "),
-          _vm.status ? _c("small", [_vm._v(_vm._s(_vm.status))]) : _vm._e()
+          _vm.status
+            ? _c("small", [_vm._v(" " + _vm._s(_vm.status) + "  ")])
+            : _vm._e()
         ]),
         _vm._v(" "),
         _vm._m(0)
@@ -38187,7 +38363,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
-            _c("label", { staticClass: "form-label" }, [_vm._v("Email")]),
+            _c("label", { staticClass: "form-label" }, [_vm._v("Disciplinas")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -38324,7 +38500,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row justify-content-center" }, [
     _c("div", { staticClass: "col-md-12" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [
+          _vm._v("Lista de Estudantes "),
+          _vm.status ? _c("small", [_vm._v(_vm._s(_vm.status))]) : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -38340,8 +38523,6 @@ var render = function() {
               "tbody",
               _vm._l(_vm.estudantes, function(estudante) {
                 return _c("tr", { key: estudante.id }, [
-                  _c("td", [_vm._v(_vm._s(estudante.id))]),
-                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(estudante.name))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(estudante.email))]),
@@ -38351,7 +38532,17 @@ var render = function() {
                   _c("td", [
                     _vm._m(2, true),
                     _vm._v(" "),
-                    _vm._m(3, true),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-success btn-xs",
+                        attrs: { href: "/estudantes/" + estudante.id + "/edit" }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-pen" }),
+                        _vm._v(" Editar")
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "button",
@@ -38374,12 +38565,12 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _vm._m(4)
+            _vm._m(3)
           ])
         ]
       ),
       _vm._v(" "),
-      _vm._m(5)
+      _vm._m(4)
     ])
   ])
 }
@@ -38388,12 +38579,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Lista de Estudantes ")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-tools" }, [
-        _c("i", { staticClass: "fas fa-users" })
-      ])
+    return _c("div", { staticClass: "card-tools" }, [
+      _c("i", { staticClass: "fas fa-users" })
     ])
   },
   function() {
@@ -38402,8 +38589,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("id")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
@@ -38427,15 +38612,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-success btn-xs" }, [
-      _c("i", { staticClass: "fas fa-pen" }),
-      _vm._v(" Editar")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c(
       "a",
       {
@@ -38445,6 +38621,197 @@ var staticRenderFns = [
       [
         _c("i", { staticClass: "fas fa-file-export" }),
         _vm._v(" Cadastrar Estudante")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "main-footer-fluid" }, [
+      _c("strong", [_vm._v("By Eng Matimbe Jose , Justino . MSC")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Estudantes/editEstudantes.vue?vue&type=template&id=5701173e& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _c("h3", { staticClass: "card-title" }, [
+          _vm._v("Cadastrar Estudantes "),
+          _vm.status
+            ? _c("small", [_vm._v(" " + _vm._s(_vm.status) + "  ")])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { action: "#" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.save($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("Nome")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.name,
+                  expression: "formData.name"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "name",
+                placeholder: "imforme o nome do estudante"
+              },
+              domProps: { value: _vm.formData.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("Disciplinas")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.email,
+                  expression: "formData.email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "email",
+                placeholder: "imforme a email do estudante"
+              },
+              domProps: { value: _vm.formData.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("celular")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.celular,
+                  expression: "formData.celular"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "celular",
+                placeholder: "imforme o celular do estudante"
+              },
+              domProps: { value: _vm.formData.celular },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "celular", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(3)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-tools" }, [
+      _c("i", { staticClass: "fas fa-users" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-success", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fas fa-plus-square" }), _vm._v(" Salvar ")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-primary",
+        attrs: { href: "/estudantes", role: "button" }
+      },
+      [
+        _c("i", { staticClass: "fas fa-list-ul" }),
+        _vm._v(" Lista de Estudantes")
       ]
     )
   },

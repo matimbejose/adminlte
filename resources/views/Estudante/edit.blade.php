@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastrar Estudantes')
+@section('title', 'Editar Estudantes')
 
 @section('content_header')
 @stop
 
 @section('content')
     <div id="app">
-        <create-estudantes/>
+    <edit-estudantes :estudante="{{ $estudante }}" />
     </div>
 @stop
 

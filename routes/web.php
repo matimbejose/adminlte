@@ -32,4 +32,5 @@ Route::get('/getestudantes', 'EstudanteController@showEstudantes');
 
 
 
+
 Auth::routes();

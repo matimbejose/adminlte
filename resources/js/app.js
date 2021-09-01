@@ -23,6 +23,7 @@
  Vue.component('home-dashboard', require('./components/Dashboard/Dashboard.vue').default);
  Vue.component('home-estudantes', require('./components/Estudantes/Estudantes.vue').default);
  Vue.component('create-estudantes' , require('./components/Estudantes/CreateEstudantes.vue').default);
+ Vue.component('edit-estudantes', require('./components/Estudantes/editEstudantes.vue').default)
 
 
  
